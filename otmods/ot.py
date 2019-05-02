@@ -135,7 +135,7 @@ class OverTime:
             ratehour = self.cal_multi_ratehour(check_otrate)
             ottype = "Rates and hours \n"
             for key, value in ratehour["rates"].items():
-                ottype += f"rate: {key} hours {value}"
+                ottype += f"rate: {key} hours: {value} \n"
         else:
             ottype = f"Total hours {total_hours} \n"
             ottype += f"Rate {check_otrate}"
@@ -143,7 +143,7 @@ class OverTime:
         with open("last_month_OT.csv", "w") as csvfile:
             fieldnames = ["date", "hours", "reason", "ot type"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            writer.writerow({"month": month, "overtime_type": ottype})
+            writer.writerow({"date": month, "hours": ottype})
             writer.writeheader()
             for key, value in db["OT"].items():
                 writer.writerow({"date": key, "hours": value["hours"],
@@ -165,7 +165,7 @@ class OverTime:
             ratehour = self.cal_multi_ratehour(check_otrate)
             ottype = "Rates and hours \n"
             for key, value in ratehour["rates"].items():
-                ottype += f"rate: {key} hours {value}"
+                ottype += f"rate: {key} hours: {value} \n"
         else:
             ottype = f"Total hours {total_hours} \n"
             ottype += f"Rate {check_otrate}"
@@ -173,7 +173,7 @@ class OverTime:
         with open("last_month_OT.csv", "w") as csvfile:
             fieldnames = ["date", "hours", "reason", "ot type"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            writer.writerow({"month": month, "overtime_type": ottype})
+            writer.writerow({"date": month, "hours": ottype})
             writer.writeheader()
             for key, value in db["OT"].items():
                 writer.writerow({"date": key, "hours": value["hours"],
