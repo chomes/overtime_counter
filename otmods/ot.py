@@ -133,7 +133,7 @@ class OverTime:
         check_otrate = self.calculate_otrate()
         if isinstance(check_otrate, list):
             ratehour = self.cal_multi_ratehour(check_otrate)
-            ottype = "Rates and hours \n"
+            ottype = "Rates & hours \n"
             for key, value in ratehour["rates"].items():
                 ottype += f"rate: {key} hours: {value} \n"
         else:
